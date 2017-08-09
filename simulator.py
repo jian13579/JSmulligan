@@ -72,7 +72,7 @@ class simulator:
         """
         Cardurls = []
         for card in cards:
-            CardIDs.append(matchidtourl(str(card)))
+            Cardurls.append(matchidtourl(str(card)))
         return Cardurls
 
 """
