@@ -4,6 +4,7 @@ from hearthstone.deckstrings import Deck
 from hearthstone.enums import FormatType
 from matchingdbfid import *
 from matchingdbfidtoid import *
+from matchingidtourls import *
 import random
 import sys
 #import numpy
