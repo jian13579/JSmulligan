@@ -21,7 +21,7 @@ class simulator:
         self.user_selection = None
         self.urls = []
         self.hand_names = []
-        self.result = {}
+        self.results = {}
         self.nextfourdraws = []
 
     def simulate_mulligan(self, deckcode):
