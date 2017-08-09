@@ -16,6 +16,7 @@ class simulator:
         self.deck = None
         self.opponent = ""
         self.hand = []
+        self.handID = []
         self.deckcode = None
         self.user_selection = None
         self.urls = []
@@ -35,11 +36,12 @@ class simulator:
         self.opponent = opponent_selection()
         self.hand = initial_draw(self.decklist, self.order)
         self.hand_names = self.display_cards(self.hand)
-        self.display_cards_ID(self.hand)
-        self.urls = self.ID_to_url(self.hand)
+        self.handID = self.display_cards_ID(self.hand)
+        self.urls = self.ID_to_url(self.handID)
 
         #creates the next four possible draws for the next mulligan. In this case, top card starts from the index 0
         self.nextfourdraws = [self.decklist.pop(), self.decklist.pop(), self.decklist.pop(), self.decklist.pop()]
+        self.nextfourdraws = self.display_cards_ID(self.nextfourdraws)
         self.nextfourdraws = self.ID_to_url(self.nextfourdraws)
 
         self.results.update({"order":self.order, "hand_url":self.urls,
