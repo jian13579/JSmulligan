@@ -10,10 +10,16 @@
             deckcode: $('input[name="deckcode"]').val(),
           }, function(data) {
         $("#result").text(data.result);
+        $("#hand").(data.result.hand_url);
+        $("#smalldeck").(data.result.smalldeck);
         });
         return false;
       });
     });
+
+    var hand = new Array(document.getElementById('hand'));
+
+    var smalldeck = new Array(document.getElementById('smalldeck'));
 
     function cardimages(array){
       var cardone = array[0];
@@ -35,7 +41,7 @@
     <div class='container'>
     <form name="deckcode">
       Deckcode: <input type="text" name="deckcode">
-      <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(result.hand_url)">Mulligan</button></a>
+      <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(hand)">Mulligan</button></a>
     </form>
 
       <div id='card1'></div>
