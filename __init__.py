@@ -16,10 +16,9 @@ function returning a JSON that contains the urls of the cards drawn
 def execution():
     try:
         deckcode = request.args.get('deckcode', 0, type=str)
-        result = []
         sim = simulator()
         sim.simulate_mulligan(deckcode)
-
+		result = sim.results
 	    return jsonify(result)
     except Exception as e:
         return str(e)
