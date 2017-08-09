@@ -14,6 +14,19 @@
         return false;
       });
     });
+
+    function cardimages(array){
+      var cardone = array[0];
+      var cardtwo = array[1];
+      var cardthree = array[2];
+      load(cardone);
+      load(cardtwo);
+      load(cardthree);
+      if (array.length === 4){
+        cardfour = array[3];
+        load(cardfour);
+      }
+    }
     </script>
   </head>
 
@@ -22,13 +35,13 @@
     <div class='container'>
     <form name="deckcode">
       Deckcode: <input type="text" name="deckcode">
-      <a href=# id=process_input><button class='btn btn-default'>Mulligan</button></a>
+      <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(result.hand_url)">Mulligan</button></a>
     </form>
 
-      <div class='Card1'></div>
-      <div class='Card2'></div>
-      <div class='Card3'></div>
-      <div class='Card4'></div>
+      <div id='card1'></div>
+      <div id='card2'></div>
+      <div id='card3'></div>
+      <div id='card4'></div>
     </div>
 
 
