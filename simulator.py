@@ -43,7 +43,7 @@ class simulator:
         self.nextfourdraws = self.ID_to_url(self.nextfourdraws)
 
         self.results.update({"order":self.order, "hand_url":self.urls,
-        "opponent": self.opponent, "decklist" = self.originaldecklist,
+        "opponent": self.opponent, "decklist": self.originaldecklist,
         "smalldeck":self.nextfourdraws, "deckcode":self.deckcode,
         "hand_names": self.hand_names})
 
