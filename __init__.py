@@ -1,7 +1,9 @@
-from flask import jsonify
+from flask import jsonify, Flask
 from shuffler import *
 from simulator import *
 import json
+
+app = Flask(__name__)
 
 @app.route('/mulligan/')
 def mulligan():
@@ -18,7 +20,10 @@ def execution():
         deckcode = request.args.get('deckcode', 0, type=str)
         sim = simulator()
         sim.simulate_mulligan(deckcode)
-		result = sim.results
-	    return jsonify(result)
+        result = sim.results
+        return jsonify(result)
     except Exception as e:
         return str(e)
+
+if __name__ == "__main__":
+        app.run()
