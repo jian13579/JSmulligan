@@ -3,6 +3,7 @@ from hearthstone.deckstrings import Deck
 from hearthstone.enums import FormatType
 
 
+##Example Mage Deck we will be using ("AAECAf0ECO0Fcem6AoivAuwHobcCxQS/CAuBsgKVA8HBApYF17YCmMQCqwTAAbC8ArsCo7YCAA==")
 
 class simulator:
 
@@ -56,7 +57,7 @@ class simulator:
         to_display = []
         for card in cards:
             to_display.append(matchdbfid(str(card)))
-        print(to_display)
+        return to_display
 
     def display_cards_ID(self, cards):
         """
