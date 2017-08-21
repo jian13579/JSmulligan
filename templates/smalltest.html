@@ -11,6 +11,41 @@
         return false;
       });
     });
+
+    var testpull = {"order": true,
+    "hand_url": ["https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CFM_065.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CS2_022.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/EX1_561.png"],
+    "opponent": "Hunter",
+    "decklist": [555, 621, 621, 39767, 41496,1004, 1087, 39715, 39767, 41878, 40297, 41153, 39841, 555, 39715, 41496, 192, 315,405, 38792, 192, 662, 912],
+    "smalldeck": ["https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/NEW1_012.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/afb4/rel/CS2_024.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/afb4/rel/UNG_020.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CS2_029.png"],
+    "deckcode": "AAECAf0ECE3FBJAH7Ae/CIivAqG3ApbHAgvAAbsClQOrBO0ElgWjtgLXtgLpugLBwQKYxAIA", "hand_names": null}
+
+    var hand = testpull.hand_url
+
+    function cardimages(array){
+      var cardone = array[0];
+      var cardtwo = array[1];
+      var cardthree = array[2];
+      load(cardone);
+      load(cardtwo);
+      load(cardthree);
+      if (array.length === 4){
+        cardfour = array[3];
+        load(cardfour);
+      }
+    }
+
+    function load(src) {
+        var img = document.createElement("img");
+        img.src = src;
+        img.width = 140;
+        img.height = 200;
+        document.body.appendChild(img);
+    }
+
+    function clicked(){
+      document.getElementById("lim_clicks").disabled=true;;
+    }
+
     </script>
     </head>
 
@@ -19,7 +54,12 @@
     <form name="deckcode">
       Deckcode: <input type="text" name="deckcode">
       <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(hand)">Mulligan</button></a>
+        <button id="lim_clicks" onclick="cardimages(list_one); clicked()">Draw Cards</button>
     </form>
+
+    <body>
+    <a id="myLink" href = test.html></a>
+    </body>
 
       <div id='card1'></div>
       <div id='card2'></div>
