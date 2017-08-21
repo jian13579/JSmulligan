@@ -1,3 +1,5 @@
+
+
 <html>
   <head>
     <title>Mulligan App</title>
@@ -6,7 +8,7 @@
     <script language = "JavaScript" type= "text/javascript">
     $(function() {
       $('a#process_input').bind('click', function() {
-          $.getJSON('/execution', {
+          $.getJSON('/_simulate', {
             deckcode: $('input[name="deckcode"]').val(),
           }, function(data) {
         $("#result").text(data.result);
@@ -20,6 +22,10 @@
     var hand = new Array(document.getElementById('hand'));
 
     var smalldeck = new Array(document.getElementById('smalldeck'));
+
+    var requestURL = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatched.json'
+    var requestURLid = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatchedid.json'
+    var requestURLurl = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatchedurls.json'
 
     function cardimages(array){
       var cardone = array[0];
@@ -40,7 +46,8 @@
   <body>
     <div class='container'>
     <form name="deckcode">
-      Deckcode: <input type="text" name="deckcode">
+      Deckcode: <input type="text" size = "5" name="deckcode">
+      <span id="result">?</span>
       <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(hand)">Mulligan</button></a>
     </form>
 
