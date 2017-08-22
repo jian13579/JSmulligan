@@ -25,25 +25,17 @@
 
     var hand = testpull.hand_url
 
+    var i;
     function cardimages(array){
-      var cardone = array[0];
-      var cardtwo = array[1];
-      var cardthree = array[2];
-      load(cardone);
-      load(cardtwo);
-      load(cardthree);
-      if (array.length === 4){
-        cardfour = array[3];
-        load(cardfour);
-      }
-    }
-
-    function load(src) {
+      for (i = 0; i < array.length; i++) {
+        var cardi = array[i];
         var img = document.createElement("img");
-        img.src = src;
+        img.src = cardi;
         img.width = 140;
         img.height = 200;
+        img.id = "card" + i
         document.body.appendChild(img);
+      }
     }
 
     function clicked(){
@@ -63,7 +55,7 @@
     Deckcode: <input type="text" name="deckcode">
   </form>
 
-  <button id="lim_clicks" onclick="cardimages(hand); clicked()">Draw Cards</button>
+  <button id="lim_clicks" onclick="cardimages(list_two); clicked()">Draw Cards</button>
   <!--This displays the card images-->
   <br><br>
   <!--<img src="nothing.jpg" id="cardone">
