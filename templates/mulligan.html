@@ -6,6 +6,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!--AJax functions, and all other python related functions go here in the head -->
     <script language = "JavaScript" type= "text/javascript">
+
+    $(document).ready(function() {
+        $('form').on('submit', function(event){
+            $.ajax({
+              data: {
+                deckcode: $('#deckcode').val()
+              },
+              type: 'POST'
+              url:'/_simulate'
+            })
+            event.preventDefault();
+        });
+    });
+
     $(function() {
       $('a#process_input').bind('click', function() {
           $.getJSON('/_simulate', {
@@ -23,33 +37,34 @@
 
     var smalldeck = new Array(document.getElementById('smalldeck'));
 
-    var requestURL = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatched.json'
-    var requestURLid = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatchedid.json'
-    var requestURLurl = 'https://raw.githubusercontent.com/jian13579/JSmulligan/master/finalmatchedurls.json'
+        var i;
+        function cardimages(array){
+          for (i = 0; i < array.length; i++) {
+            var cardi = array[i];
+            var img = document.createElement("img");
+            img.src = cardi;
+            img.width = 140;
+            img.height = 200;
+            img.id = "card" + i
+            document.body.appendChild(img);
+          }
+        }
 
-    function cardimages(array){
-      var cardone = array[0];
-      var cardtwo = array[1];
-      var cardthree = array[2];
-      load(cardone);
-      load(cardtwo);
-      load(cardthree);
-      if (array.length === 4){
-        cardfour = array[3];
-        load(cardfour);
-      }
-    }
-    </script>
-  </head>
+        //this function disables the mulligan button after the first click
+        function clicked(){
+          document.getElementById("lim_clicks").disabled=true;;
+        }
+
+        </script>
+      </head>
 
 
-  <body>
-    <div class='container'>
-    <form name="deckcode">
-      Deckcode: <input type="text" size = "5" name="deckcode">
-      <span id="result">?</span>
-      <a href=# id=process_input><button class='btn btn-default' onclick="cardimages(hand)">Mulligan</button></a>
-    </form>
+      <body>
+      <form name="deckcode">
+        Deckcode: <input type="text" name="deckcode">
+      </form>
+
+      <button id="lim_clicks" onclick="cardimages(hand); clicked()">Draw Cards</button>
 
       <div id='card1'></div>
       <div id='card2'></div>
