@@ -45,23 +45,6 @@ def homepage():
 def mulligan():
     return render_template("mulligan.html")
 
-
-##Example for adding numbers server side
-@app.route('/example')
-def example():
-    return render_template("example.html")
-
-##Still using GETjson Requests to test mulligan
-@app.route('/smalltest')
-def smalltest():
-    return render_template("smalltest.html")
-
-##First time using AJAX request to test mulligan
-@app.route('/tests')
-def test():
-    return render_template("tests.html")
-
-
 ##More testing below here
 @app.route('/supertest')
 def index():
